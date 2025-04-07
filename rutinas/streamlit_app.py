@@ -1,5 +1,4 @@
 import streamlit as st
-import os
 from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet
@@ -70,9 +69,6 @@ def generar_pdf(rutina):
     return buffer
 
 def main():
-    # Inject CSS with Markdown
-    with open("style.css") as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
     st.title("Recomendador de Rutinas de Gimnasio")
 
     # API key
@@ -103,9 +99,9 @@ def main():
             # Mostrar la respuesta generada por la IA en la interfaz de Streamlit
             st.write("Rutina generada:", rutina)
 
-            # Si se detecta un error en la respuesta, se muestra el error
-            if isinstance(rutina, dict) and "error" in rutina:
-                st.error(rutina["error"])
+            # Si se detecta "Error" en la respuesta, se muestra el error
+            if "Error" in rutina:
+                st.error(rutina)
             else:
                 # Guardar la rutina en el estado de la sesión
                 st.session_state.rutina = rutina
