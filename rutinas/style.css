@@ -1,0 +1,38 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #121212;
+  color: #fff;
+}
+
+.stApp {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #fff;
+}
+
+.stButton > button {
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.stButton > button:hover {
+  background-color: #ddd;
+}
+
+.stTextInput > label,
+.stNumberInput > label,
+.stSelectbox > label,
+.stSlider > label,
+.stCheckbox > label {
+  color: #fff;
+}
